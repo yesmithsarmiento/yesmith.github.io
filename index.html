@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yesmith Store ✨</title>
+  <title>Yesmith Bags — Elegancia en cada detalle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: "Poppins", Arial, sans-serif;
-      background-color: #fffafc;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfbf8;
+      color: #3b2f2f;
     }
 
     header {
-      background-color: #ffdae3;
-      padding: 15px 0;
+      background-color: #fff;
+      padding: 20px 0;
       text-align: center;
-      font-weight: bold;
-      font-size: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      color: #b28b67;
+      font-size: 28px;
+      margin: 0;
+      letter-spacing: 1px;
     }
 
     nav {
@@ -25,52 +33,87 @@
     }
 
     nav a {
-      margin: 0 10px;
-      color: #333;
+      color: #7a5b43;
       text-decoration: none;
+      margin: 0 12px;
       font-weight: 500;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: deeppink;
+      color: #b28b67;
     }
 
     .hero {
-      background: url('https://i.pinimg.com/1200x/3c/34/98/3c3498184cdd49da2d07e9c924d09ed5.jpg') no-repeat center center;
-      background-size: cover;
-      color: white;
-      padding: 120px 20px;
+      background: url('https://i.pinimg.com/1200x/61/1b/4f/611b4f1c44bda0bb142bcb048828b6a7.jpg') center/cover no-repeat;
+      color: #fff;
       text-align: center;
+      padding: 150px 20px;
+      position: relative;
     }
 
-    .hero h1 {
-      font-size: 40px;
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .hero h2 {
+      position: relative;
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
       margin-bottom: 10px;
     }
 
     .hero p {
+      position: relative;
       font-size: 18px;
+      margin-bottom: 25px;
     }
 
     .btn {
-      background-color: #ff73a1;
+      position: relative;
+      background-color: #b28b67;
       color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding: 12px 30px;
       border: none;
+      border-radius: 30px;
+      font-weight: 500;
       cursor: pointer;
-      margin-top: 15px;
+      font-size: 16px;
+      transition: background 0.3s ease;
     }
 
     .btn:hover {
-      background-color: deeppink;
+      background-color: #d3a982;
+    }
+
+    .about {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .about h3 {
+      font-family: 'Playfair Display', serif;
+      color: #b28b67;
+      font-size: 28px;
+    }
+
+    .about p {
+      max-width: 600px;
+      margin: 20px auto;
+      color: #4b3b2f;
+      font-size: 17px;
     }
 
     footer {
-      background-color: #ffdae3;
+      background-color: #fff;
       text-align: center;
-      padding: 10px;
+      padding: 20px;
       font-size: 14px;
+      color: #7a5b43;
+      border-top: 1px solid #eee;
       margin-top: 40px;
     }
   </style>
@@ -78,22 +121,31 @@
 
 <body>
   <header>
-    🌷 Yesmith Store
+    <h1>Yesmith Bags</h1>
     <nav>
       <a href="index.html">Inicio</a>
-      <a href="productos.html">Productos</a>
+      <a href="coleccion.html">Colección</a>
+      <a href="sobre.html">Sobre nosotros</a>
       <a href="contacto.html">Contacto</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Bienvenida a mi mundo creativo 💫</h1>
-    <p>Descubre productos únicos, historias exclusivas y arte con alma.</p>
-    <button class="btn" onclick="location.href='productos.html'">Ver productos</button>
+    <h2>Elegancia en cada detalle</h2>
+    <p>Descubre nuestra colección de bolsos exclusivos diseñados para mujeres con estilo.</p>
+    <button class="btn" onclick="location.href='coleccion.html'">Ver colección</button>
+  </section>
+
+  <section class="about">
+    <h3>Nuestra esencia</h3>
+    <p>
+      En <b>Yesmith Bags</b> creemos que un bolso no es solo un accesorio, es una declaración de elegancia y personalidad. 
+      Cada pieza es creada con materiales premium, detalles delicados y un toque de lujo moderno.
+    </p>
   </section>
 
   <footer>
-    © 2025 Yesmith Store — Creado con 💖 por Yesmith
+    © 2025 Yesmith Bags | Diseñado con 💕 por Yesmith
   </footer>
 </body>
 </html>
