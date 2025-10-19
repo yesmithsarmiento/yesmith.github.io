@@ -6,7 +6,7 @@
   <title>Yesmith Bags — Elegancia en cada detalle</title>
 
   <!-- Fuentes elegantes -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
   <style>
     /* ---------- ESTILO GENERAL ---------- */
@@ -30,10 +30,14 @@
 
     header h1 {
       font-family: 'Playfair Display', serif;
-      color: #b28b67;
-      font-size: 28px;
-      margin: 0;
+      font-size: 42px;
+      font-style: italic;
+      font-weight: 700;
+      background: linear-gradient(90deg, #b28b67, #e6c89f, #b28b67);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       letter-spacing: 1px;
+      margin: 0;
     }
 
     nav {
@@ -91,11 +95,14 @@
       font-weight: 500;
       cursor: pointer;
       font-size: 16px;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(178, 139, 103, 0.3);
     }
 
     .btn:hover {
-      background-color: #d3a982;
+      background-color: #d6b48e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(178, 139, 103, 0.4);
     }
 
     /* ---------- SECCIÓN SOBRE NOSOTROS ---------- */
@@ -132,7 +139,7 @@
     /* ---------- ESTILOS PARA MÓVIL ---------- */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 22px;
+        font-size: 30px;
       }
 
       nav a {
@@ -143,7 +150,6 @@
 
       .hero {
         padding: 100px 15px;
-        background-position: center;
       }
 
       .hero h2 {
@@ -176,7 +182,7 @@
 
 <body>
   <header>
-    <h1>Yesmith Bags</h1>
+    <h1><i><b>Yesmith Bags</b></i></h1>
     <nav>
       <a href="index.html">Inicio</a>
       <a href="coleccion.html">Colección</a>
@@ -203,4 +209,4 @@
     © 2025 Yesmith Bags | Diseñado con 💕 por Yesmith
   </footer>
 </body>
-</html
+</html>
