@@ -3,77 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Colección | Yesmith Bags</title>
+  <title>Colección Yesmith Bags</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #fff;
+      background-color: #ffffff;
+      color: #000000;
       margin: 0;
       padding: 0;
     }
 
     header {
       text-align: center;
-      padding: 2rem;
-      background-color: #f8f8f8;
+      padding: 30px 10px;
+      border-bottom: 2px solid #000;
     }
 
-    h1 {
-      font-size: 2rem;
+    header h1 {
+      font-size: 2em;
       letter-spacing: 1px;
-      color: #333;
     }
 
-    .filtros {
+    .container {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1.5rem;
-      background-color: #fafafa;
-      border-bottom: 1px solid #ddd;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 30px;
+      padding: 0 20px;
     }
 
-    .filtro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* Filtros */
+    .filters {
+      width: 250px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      height: fit-content;
     }
 
-    .filtro label {
-      margin: 0.3rem 0;
+    .filters h3 {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 5px;
+      font-size: 1.1em;
+    }
+
+    .filters label {
+      display: block;
+      margin: 8px 0;
       cursor: pointer;
-      color: #555;
     }
 
-    .productos {
+    .filters input {
+      margin-right: 8px;
+      accent-color: black;
+    }
+
+    /* Productos */
+    .products {
+      flex: 1;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 25px;
     }
 
-    .producto {
-      border: 1px solid #eee;
-      border-radius: 12px;
-      padding: 1rem;
+    .product {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
       text-align: center;
+      padding: 15px;
       transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
     }
 
-    .producto img {
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .product img {
       width: 100%;
+      height: 230px;
+      object-fit: cover;
       border-radius: 10px;
     }
 
-    .producto:hover {
-      transform: scale(1.03);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    .product h4 {
+      margin: 12px 0 6px;
+      font-size: 1.05em;
     }
 
-    .precio {
-      color: #333;
+    .product p {
       font-weight: bold;
-      margin-top: 0.5rem;
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #000;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .filters {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -82,67 +125,56 @@
     <h1>Colección Yesmith Bags</h1>
   </header>
 
-  <!-- FILTROS -->
-  <div class="filtros">
-    <div class="filtro">
-      <h3>Color</h3>
-      <label><input type="checkbox" class="color" value="beige"> Beige</label>
-      <label><input type="checkbox" class="color" value="negro"> Negro</label>
-      <label><input type="checkbox" class="color" value="blanco"> Blanco</label>
-      <label><input type="checkbox" class="color" value="rojo"> Rojo</label>
-    </div>
+  <div class="container">
+    <aside class="filters">
+      <h3>Filtrar por color</h3>
+      <label><input type="checkbox" value="beige" checked> Beige</label>
+      <label><input type="checkbox" value="negro" checked> Negro</label>
+      <label><input type="checkbox" value="blanco" checked> Blanco</label>
+      <label><input type="checkbox" value="rojo" checked> Rojo</label>
+    </aside>
+
+    <section class="products" id="product-list">
+      <div class="product" data-color="negro">
+        <img src="imagenes/bolso-negro.jpg" alt="Bolso negro">
+        <h4>Bolso Negro Elegante</h4>
+        <p>$135.000</p>
+      </div>
+      <div class="product" data-color="blanco">
+        <img src="imagenes/bolso-blanco.jpg" alt="Bolso blanco">
+        <h4>Bolso Blanco Minimalista</h4>
+        <p>$110.000</p>
+      </div>
+      <div class="product" data-color="beige">
+        <img src="imagenes/bolso-beige.jpg" alt="Bolso beige">
+        <h4>Bolso Beige Clásico</h4>
+        <p>$120.000</p>
+      </div>
+      <div class="product" data-color="rojo">
+        <img src="imagenes/bolso-rojo.jpg" alt="Bolso rojo">
+        <h4>Bolso Rojo Chic</h4>
+        <p>$140.000</p>
+      </div>
+    </section>
   </div>
 
-  <!-- PRODUCTOS -->
-  <div class="productos" id="productos">
-    <div class="producto" data-color="beige">
-      <img src="https://via.placeholder.com/250x250/beige/000000?text=Bolso+Beige" alt="Bolso Beige">
-      <p>Bolso Beige</p>
-      <p class="precio">$120.000</p>
-    </div>
-
-    <div class="producto" data-color="negro">
-      <img src="https://via.placeholder.com/250x250/000000/ffffff?text=Bolso+Negro" alt="Bolso Negro">
-      <p>Bolso Negro</p>
-      <p class="precio">$135.000</p>
-    </div>
-
-    <div class="producto" data-color="blanco">
-      <img src="https://via.placeholder.com/250x250/ffffff/000000?text=Bolso+Blanco" alt="Bolso Blanco">
-      <p>Bolso Blanco</p>
-      <p class="precio">$110.000</p>
-    </div>
-
-    <div class="producto" data-color="rojo">
-      <img src="https://via.placeholder.com/250x250/ff0000/ffffff?text=Bolso+Rojo" alt="Bolso Rojo">
-      <p>Bolso Rojo</p>
-      <p class="precio">$140.000</p>
-    </div>
-
-    <div class="producto" data-color="negro">
-      <img src="https://via.placeholder.com/250x250/000000/ffffff?text=Bolso+Negro+2" alt="Bolso Negro 2">
-      <p>Bolso Negro 2</p>
-      <p class="precio">$150.000</p>
-    </div>
-  </div>
+  <footer>
+    © 2025 Yesmith Bags — Todos los derechos reservados.
+  </footer>
 
   <script>
-    const checkboxes = document.querySelectorAll('.color');
-    const productos = document.querySelectorAll('.producto');
+    const checkboxes = document.querySelectorAll('.filters input');
+    const products = document.querySelectorAll('.product');
 
-    checkboxes.forEach(chk => {
-      chk.addEventListener('change', () => {
-        const activos = Array.from(checkboxes)
-          .filter(c => c.checked)
-          .map(c => c.value);
+    checkboxes.forEach(box => {
+      box.addEventListener('change', () => {
+        const activeColors = Array.from(checkboxes)
+          .filter(b => b.checked)
+          .map(b => b.value);
 
-        productos.forEach(p => {
-          const color = p.dataset.color;
-          if (activos.length === 0 || activos.includes(color)) {
-            p.style.display = 'block';
-          } else {
-            p.style.display = 'none';
-          }
+        products.forEach(prod => {
+          const color = prod.getAttribute('data-color');
+          prod.style.display = activeColors.includes(color) ? 'block' : 'none';
         });
       });
     });
