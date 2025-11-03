@@ -14,6 +14,9 @@
       font-family: 'Poppins', sans-serif;
       background-color: #fff;
       color: #2e2e2e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* ---------- ENCABEZADO ---------- */
@@ -53,21 +56,53 @@
       color: #b28b67;
     }
 
-    /* ---------- FILTROS ---------- */
-    .filter-buttons {
+    /* ---------- CONTENEDOR PRINCIPAL ---------- */
+    .main-container {
+      display: flex;
+      flex: 1;
+      max-width: 1300px;
+      margin: 40px auto;
+      padding: 0 20px;
+      gap: 30px;
+    }
+
+    /* ---------- FILTROS LATERALES ---------- */
+    .sidebar {
+      width: 220px;
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 20px;
+      height: fit-content;
+      position: sticky;
+      top: 120px;
+    }
+
+    .sidebar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #000;
       text-align: center;
-      margin: 50px 0 20px;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
     }
 
     .filter-buttons button {
       background-color: #fff;
       border: 1px solid #000;
       color: #000;
-      padding: 10px 20px;
-      margin: 5px;
+      padding: 10px;
       border-radius: 25px;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-weight: 500;
     }
 
     .filter-buttons button:hover,
@@ -78,12 +113,10 @@
 
     /* ---------- GALERÍA ---------- */
     .gallery {
+      flex: 1;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
     }
 
     .item {
@@ -93,6 +126,7 @@
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #fff;
     }
 
     .item:hover {
@@ -104,6 +138,11 @@
       width: 100%;
       height: 300px;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .item:hover img {
+      transform: scale(1.05);
     }
 
     .item h4 {
@@ -126,24 +165,28 @@
       font-size: 14px;
       color: #7a5b43;
       border-top: 1px solid #eee;
-      margin-top: 40px;
+      margin-top: auto;
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 32px;
+    @media (max-width: 900px) {
+      .main-container {
+        flex-direction: column;
       }
 
-      nav a {
-        margin: 5px 8px;
+      .sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
       }
 
-      .gallery {
-        padding: 20px;
+      .filter-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
-      .item img {
-        height: 250px;
+      .filter-buttons button {
+        flex: 1 1 100px;
       }
     }
   </style>
@@ -160,51 +203,58 @@
     </nav>
   </header>
 
-  <section class="filter-buttons">
-    <button class="active" onclick="filterSelection('all')">Todo</button>
-    <button onclick="filterSelection('beige')">Beige</button>
-    <button onclick="filterSelection('negro')">Negro</button>
-    <button onclick="filterSelection('rosa')">Rosa</button>
-    <button onclick="filterSelection('vinotinto')">Vinotinto</button>
-  </section>
+  <div class="main-container">
+    <!-- FILTROS LATERALES -->
+    <aside class="sidebar">
+      <h3>Filtrar por color</h3>
+      <div class="filter-buttons">
+        <button class="active" onclick="filterSelection('all')">Todo</button>
+        <button onclick="filterSelection('beige')">Beige</button>
+        <button onclick="filterSelection('negro')">Negro</button>
+        <button onclick="filterSelection('rosa')">Rosa</button>
+        <button onclick="filterSelection('vinotinto')">Vinotinto</button>
+      </div>
+    </aside>
 
-  <section class="gallery">
-    <div class="item beige negro">
-      <img src="bolso beguir y negro.jpg" alt="Bolso beige y negro">
-      <h4>Bolso Beige y Negro</h4>
-      <p>$135.000</p>
-    </div>
+    <!-- GALERÍA -->
+    <section class="gallery">
+      <div class="item beige negro">
+        <img src="bolso beguir y negro.jpg" alt="Bolso beige y negro">
+        <h4>Bolso Beige y Negro</h4>
+        <p>$135.000</p>
+      </div>
 
-    <div class="item rosa">
-      <img src="bolso palo rosa.jpg" alt="Bolso palo rosa">
-      <h4>Bolso Palo Rosa</h4>
-      <p>$130.000</p>
-    </div>
+      <div class="item rosa">
+        <img src="bolso palo rosa.jpg" alt="Bolso palo rosa">
+        <h4>Bolso Palo Rosa</h4>
+        <p>$130.000</p>
+      </div>
 
-    <div class="item beige">
-      <img src="bolso-beguie.jpg" alt="Bolso beige">
-      <h4>Bolso Beige</h4>
-      <p>$120.000</p>
-    </div>
+      <div class="item beige">
+        <img src="bolso-beguie.jpg" alt="Bolso beige">
+        <h4>Bolso Beige</h4>
+        <p>$120.000</p>
+      </div>
 
-    <div class="item negro">
-      <img src="bolso-negro.jpg" alt="Bolso negro">
-      <h4>Bolso Negro</h4>
-      <p>$150.000</p>
-    </div>
+      <div class="item negro">
+        <img src="bolso-negro.jpg" alt="Bolso negro">
+        <h4>Bolso Negro</h4>
+        <p>$150.000</p>
+      </div>
 
-    <div class="item rojo">
-      <img src="bolso-nrgto.jpg" alt="Bolso rojo">
-      <h4>Bolso Rojo</h4>
-      <p>$140.000</p>
-    </div>
+      <div class="item rojo">
+        <img src="bolso-nrgto.jpg" alt="Bolso rojo">
+        <h4>Bolso Rojo</h4>
+        <p>$140.000</p>
+      </div>
 
-    <div class="item vinotinto">
-      <img src="bolso-vinotinto.jpg" alt="Bolso vinotinto">
-      <h4>Bolso Vinotinto</h4>
-      <p>$145.000</p>
-    </div>
-  </section>
+      <div class="item vinotinto">
+        <img src="bolso-vinotinto.jpg" alt="Bolso vinotinto">
+        <h4>Bolso Vinotinto</h4>
+        <p>$145.000</p>
+      </div>
+    </section>
+  </div>
 
   <footer>
     © 2025 Yesmith Bags — Elegancia en cada detalle
@@ -229,3 +279,4 @@
   </script>
 </body>
 </html>
+
