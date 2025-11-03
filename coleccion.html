@@ -3,181 +3,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Colección Yesmith Bags</title>
+  <title>Colección — Yesmith Bags</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #ffffff;
-      color: #000000;
       margin: 0;
-      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #2e2e2e;
     }
 
+    /* ---------- ENCABEZADO ---------- */
     header {
+      background-color: #fff;
+      padding: 25px 0 10px;
       text-align: center;
-      padding: 30px 10px;
-      border-bottom: 2px solid #000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     header h1 {
-      font-size: 2em;
-      letter-spacing: 1px;
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      letter-spacing: 6px;
+      color: #000;
+      margin: 0;
+      text-transform: uppercase;
     }
 
-    .container {
-      display: flex;
-      max-width: 1200px;
-      margin: 40px auto;
-      gap: 30px;
-      padding: 0 20px;
+    nav {
+      margin-top: 15px;
     }
 
-    /* Filtros */
-    .filters {
-      width: 250px;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      height: fit-content;
+    nav a {
+      color: #000;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 15px;
     }
 
-    .filters h3 {
-      margin-bottom: 10px;
-      border-bottom: 1px solid #000;
-      padding-bottom: 5px;
-      font-size: 1.1em;
+    nav a:hover {
+      color: #b28b67;
     }
 
-    .filters label {
-      display: block;
-      margin: 8px 0;
-      cursor: pointer;
-    }
-
-    .filters input {
-      margin-right: 8px;
-      accent-color: black;
-    }
-
-    /* Productos */
-    .products {
-      flex: 1;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 25px;
-    }
-
-    .product {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+    /* ---------- FILTROS ---------- */
+    .filter-buttons {
       text-align: center;
-      padding: 15px;
+      margin: 50px 0 20px;
+    }
+
+    .filter-buttons button {
+      background-color: #fff;
+      border: 1px solid #000;
+      color: #000;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
     }
 
-    .product:hover {
+    .filter-buttons button:hover,
+    .filter-buttons button.active {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* ---------- GALERÍA ---------- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .item {
+      text-align: center;
+      border: 1px solid #eee;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
 
-    .product img {
+    .item img {
       width: 100%;
-      height: 230px;
+      height: 300px;
       object-fit: cover;
-      border-radius: 10px;
     }
 
-    .product h4 {
-      margin: 12px 0 6px;
-      font-size: 1.05em;
-    }
-
-    .product p {
-      font-weight: bold;
+    .item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      margin: 15px 0 5px;
       color: #000;
     }
 
+    .item p {
+      color: #555;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
     footer {
+      background-color: #fff;
       text-align: center;
       padding: 20px;
+      font-size: 14px;
+      color: #7a5b43;
+      border-top: 1px solid #eee;
       margin-top: 40px;
-      border-top: 1px solid #000;
-      font-size: 0.9em;
     }
 
     @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
+      header h1 {
+        font-size: 32px;
       }
 
-      .filters {
-        width: 100%;
+      nav a {
+        margin: 5px 8px;
+      }
+
+      .gallery {
+        padding: 20px;
+      }
+
+      .item img {
+        height: 250px;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Colección Yesmith Bags</h1>
+    <h1>YESMITH BAGS</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="sobre.html">Nosotros</a>
+      <a href="coleccion.html">Colección</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
   </header>
 
-  <div class="container">
-    <aside class="filters">
-      <h3>Filtrar por color</h3>
-      <label><input type="checkbox" value="beige" checked> Beige</label>
-      <label><input type="checkbox" value="negro" checked> Negro</label>
-      <label><input type="checkbox" value="blanco" checked> Blanco</label>
-      <label><input type="checkbox" value="rojo" checked> Rojo</label>
-    </aside>
+  <section class="filter-buttons">
+    <button class="active" onclick="filterSelection('all')">Todo</button>
+    <button onclick="filterSelection('beige')">Beige</button>
+    <button onclick="filterSelection('negro')">Negro</button>
+    <button onclick="filterSelection('rosa')">Rosa</button>
+    <button onclick="filterSelection('vinotinto')">Vinotinto</button>
+  </section>
 
-    <section class="products" id="product-list">
-      <div class="product" data-color="negro">
-        <img src="imagenes/bolso-negro.jpg" alt="Bolso negro">
-        <h4>Bolso Negro Elegante</h4>
-        <p>$135.000</p>
-      </div>
-      <div class="product" data-color="blanco">
-        <img src="imagenes/bolso-blanco.jpg" alt="Bolso blanco">
-        <h4>Bolso Blanco Minimalista</h4>
-        <p>$110.000</p>
-      </div>
-      <div class="product" data-color="beige">
-        <img src="imagenes/bolso-beige.jpg" alt="Bolso beige">
-        <h4>Bolso Beige Clásico</h4>
-        <p>$120.000</p>
-      </div>
-      <div class="product" data-color="rojo">
-        <img src="imagenes/bolso-rojo.jpg" alt="Bolso rojo">
-        <h4>Bolso Rojo Chic</h4>
-        <p>$140.000</p>
-      </div>
-    </section>
-  </div>
+  <section class="gallery">
+    <div class="item beige negro">
+      <img src="bolso beguir y negro.jpg" alt="Bolso beige y negro">
+      <h4>Bolso Beige y Negro</h4>
+      <p>$135.000</p>
+    </div>
+
+    <div class="item rosa">
+      <img src="bolso palo rosa.jpg" alt="Bolso palo rosa">
+      <h4>Bolso Palo Rosa</h4>
+      <p>$130.000</p>
+    </div>
+
+    <div class="item beige">
+      <img src="bolso-beguie.jpg" alt="Bolso beige">
+      <h4>Bolso Beige</h4>
+      <p>$120.000</p>
+    </div>
+
+    <div class="item negro">
+      <img src="bolso-negro.jpg" alt="Bolso negro">
+      <h4>Bolso Negro</h4>
+      <p>$150.000</p>
+    </div>
+
+    <div class="item rojo">
+      <img src="bolso-nrgto.jpg" alt="Bolso rojo">
+      <h4>Bolso Rojo</h4>
+      <p>$140.000</p>
+    </div>
+
+    <div class="item vinotinto">
+      <img src="bolso-vinotinto.jpg" alt="Bolso vinotinto">
+      <h4>Bolso Vinotinto</h4>
+      <p>$145.000</p>
+    </div>
+  </section>
 
   <footer>
-    © 2025 Yesmith Bags — Todos los derechos reservados.
+    © 2025 Yesmith Bags — Elegancia en cada detalle
   </footer>
 
   <script>
-    const checkboxes = document.querySelectorAll('.filters input');
-    const products = document.querySelectorAll('.product');
+    function filterSelection(color) {
+      let items = document.querySelectorAll('.item');
+      let buttons = document.querySelectorAll('.filter-buttons button');
 
-    checkboxes.forEach(box => {
-      box.addEventListener('change', () => {
-        const activeColors = Array.from(checkboxes)
-          .filter(b => b.checked)
-          .map(b => b.value);
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
 
-        products.forEach(prod => {
-          const color = prod.getAttribute('data-color');
-          prod.style.display = activeColors.includes(color) ? 'block' : 'none';
-        });
+      items.forEach(item => {
+        if (color === 'all' || item.classList.contains(color)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
       });
-    });
+    }
   </script>
 </body>
 </html>
