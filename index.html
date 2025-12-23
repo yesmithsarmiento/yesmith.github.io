@@ -78,21 +78,24 @@
       text-align: center;
       padding: 150px 20px;
       position: relative;
-      color: #fff;
+      color: #ffffff;
       animation: zoomHero 1.5s ease;
     }
 
+    /* CAPA OSCURA SUAVE (NO APAGA EL TEXTO) */
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0, 0, 0, 0.25); /* MÁS CLARA */
     }
 
     .hero h2,
     .hero p,
     .hero button {
       position: relative;
+      z-index: 2;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.6);
     }
 
     .hero h2 {
@@ -105,24 +108,24 @@
     .hero p {
       font-size: 18px;
       margin-bottom: 25px;
+      color: #f9f9f9; /* BLANCO REAL */
     }
 
     .btn {
       background-color: #b28b67;
-      color: white;
+      color: #fff;
       padding: 12px 30px;
       border: none;
       border-radius: 30px;
       font-size: 16px;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(178,139,103,0.3);
+      box-shadow: 0 6px 18px rgba(178,139,103,0.45);
     }
 
     .btn:hover {
       background-color: #d6b48e;
       transform: translateY(-3px);
-      box-shadow: 0 6px 14px rgba(178,139,103,0.4);
     }
 
     @keyframes zoomHero {
@@ -180,11 +183,6 @@
         letter-spacing: 5px;
       }
 
-      nav a {
-        margin: 6px 8px;
-        font-size: 14px;
-      }
-
       .hero {
         padding: 100px 15px;
       }
@@ -214,8 +212,12 @@
 
   <section class="hero">
     <h2 class="fade-up">Elegancia en cada detalle</h2>
-    <p class="fade-up">Descubre nuestra colección de bolsos exclusivos diseñados para mujeres con estilo.</p>
-    <button class="btn fade-up" onclick="location.href='coleccion.html'">Ver colección</button>
+    <p class="fade-up">
+      Descubre nuestra colección de bolsos exclusivos diseñados para mujeres con estilo.
+    </p>
+    <button class="btn fade-up" onclick="location.href='coleccion.html'">
+      Ver colección
+    </button>
   </section>
 
   <section class="about fade-up">
