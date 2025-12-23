@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yesmith Bags — Elegancia en cada detalle</title>
 
-  <!-- Fuentes elegantes -->
+  <!-- FUENTES -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ---------- ESTILO GENERAL ---------- */
+    /* ---------- GENERAL ---------- */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -17,10 +17,10 @@
       color: #3b2f2f;
     }
 
-    /* ---------- ENCABEZADO ---------- */
+    /* ---------- HEADER ---------- */
     header {
       background-color: #fff;
-      padding: 25px 0 10px;
+      padding: 30px 0 20px;
       text-align: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       position: sticky;
@@ -32,9 +32,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 54px;
       letter-spacing: 10px;
-      color: #3b2f2f;
       text-transform: uppercase;
-      font-weight: 700;
       margin: 0;
     }
 
@@ -46,65 +44,93 @@
       color: #7a5b43;
       text-decoration: none;
       margin: 0 15px;
-      font-weight: 500;
-      transition: color 0.3s;
       font-size: 15px;
+      font-weight: 500;
+      position: relative;
     }
 
-    nav a:hover {
-      color: #b28b67;
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #b28b67;
+      transition: width 0.3s ease;
     }
 
-    /* ---------- SECCIÓN PRINCIPAL (HERO) ---------- */
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-btn {
+      background-color: #b28b67;
+      color: #fff;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: 14px;
+    }
+
+    /* ---------- HERO ---------- */
     .hero {
       background: url('descarga.jpg') center/cover no-repeat;
-      color: #fff;
       text-align: center;
       padding: 150px 20px;
       position: relative;
+      color: #fff;
+      animation: zoomHero 1.5s ease;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.3);
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .hero h2,
+    .hero p,
+    .hero button {
+      position: relative;
     }
 
     .hero h2 {
-      position: relative;
       font-family: 'Playfair Display', serif;
       font-size: 48px;
+      letter-spacing: 2px;
       margin-bottom: 10px;
     }
 
     .hero p {
-      position: relative;
       font-size: 18px;
       margin-bottom: 25px;
     }
 
     .btn {
-      position: relative;
       background-color: #b28b67;
       color: white;
       padding: 12px 30px;
       border: none;
       border-radius: 30px;
-      font-weight: 500;
-      cursor: pointer;
       font-size: 16px;
+      cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(178, 139, 103, 0.3);
+      box-shadow: 0 4px 10px rgba(178,139,103,0.3);
     }
 
     .btn:hover {
       background-color: #d6b48e;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(178, 139, 103, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(178,139,103,0.4);
     }
 
-    /* ---------- SECCIÓN SOBRE NOSOTROS ---------- */
+    @keyframes zoomHero {
+      from { transform: scale(1.05); }
+      to { transform: scale(1); }
+    }
+
+    /* ---------- ABOUT ---------- */
     .about {
       text-align: center;
       padding: 60px 20px;
@@ -112,21 +138,21 @@
 
     .about h3 {
       font-family: 'Playfair Display', serif;
-      color: #b28b67;
       font-size: 28px;
+      color: #b28b67;
     }
 
     .about p {
       max-width: 600px;
       margin: 20px auto;
-      color: #4b3b2f;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.6;
+      color: #4b3b2f;
     }
 
-    /* ---------- PIE DE PÁGINA ---------- */
+    /* ---------- FOOTER ---------- */
     footer {
-      background-color: #fff;
+      background: #fff;
       text-align: center;
       padding: 20px;
       font-size: 14px;
@@ -135,7 +161,19 @@
       margin-top: 40px;
     }
 
-    /* ---------- ESTILOS PARA MÓVIL ---------- */
+    /* ---------- ANIMACIONES ---------- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
       header h1 {
         font-size: 32px;
@@ -143,7 +181,6 @@
       }
 
       nav a {
-        display: inline-block;
         margin: 6px 8px;
         font-size: 14px;
       }
@@ -159,49 +196,32 @@
       .hero p {
         font-size: 16px;
       }
-
-      .btn {
-        padding: 10px 25px;
-        font-size: 14px;
-      }
-
-      .about {
-        padding: 40px 15px;
-      }
-
-      .about h3 {
-        font-size: 24px;
-      }
-
-      .about p {
-        font-size: 15px;
-      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>YESMITH BAGS</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="coleccion.html" class="btn">Ver colección</a>
 
+  <header>
+    <h1 class="fade-up">YESMITH BAGS</h1>
+    <nav class="fade-up">
+      <a href="index.html">Inicio</a>
+      <a href="coleccion.html" class="nav-btn">Ver colección</a>
       <a href="sobre.html">Sobre nosotros</a>
       <a href="contacto.html">Contacto</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Elegancia en cada detalle</h2>
-    <p>Descubre nuestra colección de bolsos exclusivos diseñados para mujeres con estilo.</p>
-    <button class="btn" onclick="location.href='coleccion.html'">Ver colección</button>
+    <h2 class="fade-up">Elegancia en cada detalle</h2>
+    <p class="fade-up">Descubre nuestra colección de bolsos exclusivos diseñados para mujeres con estilo.</p>
+    <button class="btn fade-up" onclick="location.href='coleccion.html'">Ver colección</button>
   </section>
 
-  <section class="about">
+  <section class="about fade-up">
     <h3>Nuestra esencia</h3>
     <p>
-      En <b>Yesmith Bags</b> creemos que un bolso no es solo un accesorio, es una declaración de elegancia y personalidad. 
+      En <b>Yesmith Bags</b> creemos que un bolso no es solo un accesorio, es una declaración de elegancia y personalidad.
       Cada pieza es creada con materiales premium, detalles delicados y un toque de lujo moderno.
     </p>
   </section>
@@ -209,5 +229,17 @@
   <footer>
     © 2025 Yesmith Bags | Diseñado con 💕 por Yesmith
   </footer>
+
+  <!-- JS ANIMACIONES -->
+  <script>
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.fade-up').forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.add('show');
+        }, i * 150);
+      });
+    });
+  </script>
+
 </body>
 </html>
