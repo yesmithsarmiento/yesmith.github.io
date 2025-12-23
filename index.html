@@ -9,30 +9,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ---------- GENERAL ---------- */
+    /* ===== GENERAL ===== */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #fdfbf8;
+      background: #fdfbf8;
       color: #3b2f2f;
     }
 
-    /* ---------- HEADER ---------- */
+    h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    /* ===== HEADER ===== */
     header {
-      background-color: #fff;
+      background: #fff;
       padding: 30px 0 20px;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 54px;
+      font-size: 52px;
       letter-spacing: 10px;
-      text-transform: uppercase;
       margin: 0;
     }
 
@@ -41,11 +54,10 @@
     }
 
     nav a {
+      margin: 0 15px;
       color: #7a5b43;
       text-decoration: none;
-      margin: 0 15px;
       font-size: 15px;
-      font-weight: 500;
       position: relative;
     }
 
@@ -57,7 +69,7 @@
       width: 0;
       height: 2px;
       background: #b28b67;
-      transition: width 0.3s ease;
+      transition: width .3s;
     }
 
     nav a:hover::after {
@@ -65,66 +77,59 @@
     }
 
     .nav-btn {
-      background-color: #b28b67;
+      background: #b28b67;
       color: #fff;
       padding: 8px 22px;
       border-radius: 25px;
       font-size: 14px;
     }
 
-    /* ---------- HERO ---------- */
+    /* ===== HERO ===== */
     .hero {
       background: url('descarga.jpg') center/cover no-repeat;
+      color: #fff;
       text-align: center;
-      padding: 150px 20px;
+      padding: 160px 20px;
       position: relative;
-      color: #ffffff;
       animation: zoomHero 1.5s ease;
     }
 
-    /* CAPA OSCURA SUAVE (NO APAGA EL TEXTO) */
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.25); /* MÁS CLARA */
+      background: rgba(0,0,0,0.25);
     }
 
-    .hero h2,
-    .hero p,
-    .hero button {
+    .hero * {
       position: relative;
       z-index: 2;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      text-shadow: 0 4px 12px rgba(0,0,0,.6);
     }
 
     .hero h2 {
-      font-family: 'Playfair Display', serif;
       font-size: 48px;
       letter-spacing: 2px;
-      margin-bottom: 10px;
     }
 
     .hero p {
       font-size: 18px;
-      margin-bottom: 25px;
-      color: #f9f9f9; /* BLANCO REAL */
+      margin: 15px 0 30px;
     }
 
     .btn {
-      background-color: #b28b67;
+      background: #b28b67;
       color: #fff;
-      padding: 12px 30px;
-      border: none;
+      padding: 14px 32px;
       border-radius: 30px;
+      text-decoration: none;
       font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 18px rgba(178,139,103,0.45);
+      transition: .3s;
+      display: inline-block;
     }
 
     .btn:hover {
-      background-color: #d6b48e;
+      background: #d6b48e;
       transform: translateY(-3px);
     }
 
@@ -133,42 +138,11 @@
       to { transform: scale(1); }
     }
 
-    /* ---------- ABOUT ---------- */
-    .about {
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .about h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      color: #b28b67;
-    }
-
-    .about p {
-      max-width: 600px;
-      margin: 20px auto;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #4b3b2f;
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #7a5b43;
-      border-top: 1px solid #eee;
-      margin-top: 40px;
-    }
-
-    /* ---------- ANIMACIONES ---------- */
+    /* ===== FADE UP ===== */
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
-      transition: all 1s ease;
+      transition: 1s ease;
     }
 
     .fade-up.show {
@@ -176,72 +150,188 @@
       transform: translateY(0);
     }
 
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 32px;
-        letter-spacing: 5px;
-      }
+    /* ===== ABOUT ===== */
+    .about p {
+      max-width: 650px;
+      margin: 20px auto;
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-      .hero {
-        padding: 100px 15px;
-      }
+    /* ===== BENEFITS ===== */
+    .benefits {
+      background: #fff;
+    }
 
-      .hero h2 {
-        font-size: 32px;
-      }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-      .hero p {
-        font-size: 16px;
-      }
+    .benefit {
+      background: #fdfbf8;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.05);
+    }
+
+    /* ===== COLLECTION PREVIEW ===== */
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .item {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+      transition: .4s;
+    }
+
+    .item:hover {
+      transform: translateY(-6px);
+    }
+
+    .item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .item h4 {
+      padding: 15px;
+      font-weight: 500;
+    }
+
+    /* ===== TESTIMONIOS ===== */
+    .testimonials {
+      background: #fff;
+    }
+
+    .testimonial {
+      max-width: 600px;
+      margin: 30px auto;
+      font-style: italic;
+      color: #5b4b3f;
+    }
+
+    /* ===== CTA FINAL ===== */
+    .cta {
+      background: linear-gradient(135deg,#b28b67,#d6b48e);
+      color: #fff;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #fff;
+      padding: 30px;
+      font-size: 14px;
+      color: #7a5b43;
+      border-top: 1px solid #eee;
+      text-align: center;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:768px){
+      header h1 { font-size: 32px; letter-spacing: 5px; }
+      .hero h2 { font-size: 32px; }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1 class="fade-up">YESMITH BAGS</h1>
-    <nav class="fade-up">
-      <a href="index.html">Inicio</a>
-      <a href="coleccion.html" class="nav-btn">Ver colección</a>
-      <a href="sobre.html">Sobre nosotros</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+<header>
+  <h1 class="fade-up">YESMITH BAGS</h1>
+  <nav class="fade-up">
+    <a href="index.html">Inicio</a>
+    <a href="coleccion.html" class="nav-btn">Ver colección</a>
+    <a href="sobre.html">Sobre nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h2 class="fade-up">Elegancia en cada detalle</h2>
-    <p class="fade-up">
-      Descubre nuestra colección de bolsos exclusivos diseñados para mujeres con estilo.
-    </p>
-    <button class="btn fade-up" onclick="location.href='coleccion.html'">
-      Ver colección
-    </button>
-  </section>
+<section class="hero">
+  <h2 class="fade-up">Elegancia en cada detalle</h2>
+  <p class="fade-up">Descubre nuestra colección de bolsos diseñados para mujeres con estilo.</p>
+  <a href="coleccion.html" class="btn fade-up">Explorar colección</a>
+</section>
 
-  <section class="about fade-up">
+<section class="about fade-up">
+  <div class="container">
     <h3>Nuestra esencia</h3>
     <p>
-      En <b>Yesmith Bags</b> creemos que un bolso no es solo un accesorio, es una declaración de elegancia y personalidad.
-      Cada pieza es creada con materiales premium, detalles delicados y un toque de lujo moderno.
+      En <b>Yesmith Bags</b> creemos que un bolso no es solo un accesorio,
+      es una extensión de tu personalidad y elegancia.
     </p>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2025 Yesmith Bags | Diseñado con 💕 por Yesmith
-  </footer>
+<section class="benefits fade-up">
+  <div class="container">
+    <h3>¿Por qué elegirnos?</h3>
+    <div class="benefits-grid">
+      <div class="benefit">✔ Diseño exclusivo</div>
+      <div class="benefit">✔ Materiales premium</div>
+      <div class="benefit">✔ Detalles únicos</div>
+      <div class="benefit">✔ Estilo atemporal</div>
+    </div>
+  </div>
+</section>
 
-  <!-- JS ANIMACIONES -->
-  <script>
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.fade-up').forEach((el, i) => {
-        setTimeout(() => {
-          el.classList.add('show');
-        }, i * 150);
-      });
+<section class="fade-up">
+  <div class="container">
+    <h3>Destacados de la colección</h3>
+    <div class="collection-grid">
+      <div class="item">
+        <img src="bolso1.jpg" alt="">
+        <h4>Bolso Elegance</h4>
+      </div>
+      <div class="item">
+        <img src="bolso2.jpg" alt="">
+        <h4>Bolso Aurora</h4>
+      </div>
+      <div class="item">
+        <img src="bolso3.jpg" alt="">
+        <h4>Bolso Classic</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials fade-up">
+  <div class="container">
+    <h3>Lo que dicen nuestras clientas</h3>
+    <p class="testimonial">
+      “El bolso es hermoso, elegante y se siente de lujo. Superó mis expectativas.”
+      ⭐⭐⭐⭐⭐
+    </p>
+  </div>
+</section>
+
+<section class="cta fade-up">
+  <div class="container">
+    <h3>Encuentra el bolso que hable por ti</h3>
+    <a href="coleccion.html" class="btn">Ver colección</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Yesmith Bags · Elegancia que te acompaña
+</footer>
+
+<script>
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-up').forEach((el,i)=>{
+      setTimeout(()=>el.classList.add('show'), i*150);
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
